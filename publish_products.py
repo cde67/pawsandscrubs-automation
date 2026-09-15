@@ -31,6 +31,9 @@ PRICE_CENTS = 2499
 
 
 def load_token():
+    env_token = os.environ.get("PRINTIFY_API_TOKEN")
+    if env_token:
+        return env_token
     env_path = os.path.join(os.path.dirname(__file__), ".env")
     with open(env_path) as f:
         for line in f:
